@@ -1,0 +1,51 @@
+  char teclado;
+  int  led = 13; 
+
+void setup() {
+  // Função de configuração do arduino
+  Serial.begin(9600);
+
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  // função para repetir  o algoritmo infinitamente...
+  //  Chamando função if
+  if (Serial.available()>0 ){
+
+   teclado = Serial.read();
+
+   switch (teclado){
+
+    case 'L': 
+
+     digitalWrite(led, HIGH);
+
+     break; 
+
+     case 'D': 
+
+     digitalWrite(led, LOW);
+     break;
+
+     case 'p': 
+
+     for (int i = 0; i<4; i++) {
+
+     digitalWrite(led, HIGH); 
+     delay(500);
+     
+     digitalWrite(led, LOW);
+     delay(500);
+
+
+
+     }
+
+     break;
+   }
+
+
+  }
+  
+}
